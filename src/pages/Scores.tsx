@@ -2,11 +2,13 @@ import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import _ from 'lodash';
+import ScoresTable from '../components/Scores/Scores';
 
 const Scores = () => {
   const [usersData, setUsersData] =
     useState<{ id: number; user: string; date: string; score: string }[]>();
 
+  // const [usersData, setUsersData] = useState<any>();
   const history = useHistory();
 
   useEffect(() => {
@@ -18,41 +20,41 @@ const Scores = () => {
     setUsersData(sorted);
   }, []);
 
+  const resetDatas = () => {
+    localStorage.removeItem('users');
+    localStorage.removeItem('user');
+    localStorage.removeItem('rank');
+
+    history.push('/');
+  };
+
   return (
     <div>
       <div className="w-full flex justify-center my-5">
         <h2>Scores</h2>
       </div>
-      <div className="w-full flex justify-center">
-        <table className="border border-black">
-          <thead className="p-2">
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Score</th>
-          </thead>
-          <tbody className="p-2">
-            {usersData?.map((item, i) => (
-              <tr key={item?.id}>
-                <td>{i + 1}</td>
-                <td>{item?.user}</td>
-                <td>{item?.date}</td>
-                <td>{item?.score}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="w-full flex justify-center m-auto mt-10">
+
+      <ScoresTable usersData={usersData} />
+
+      <div className="w-1/2 flex justify-around m-auto mt-10 space-x-6">
         <Button
           variant="contained"
           color="primary"
+          className="mx-5"
           onClick={() => {
             history.push('/');
             localStorage.removeItem('user');
           }}
         >
           Go to home page
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          className="mx-5"
+          onClick={resetDatas}
+        >
+          Reset All data
         </Button>
       </div>
     </div>
