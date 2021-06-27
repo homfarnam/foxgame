@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { toast } from 'react-toastify';
+import Images from '../components/Images/Images';
 
 const Competition = () => {
   const [imagesData, setImagesData] = useState<
@@ -34,12 +35,7 @@ const Competition = () => {
       const user = localStorage.getItem('user');
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       const id = Math.random() * 1000;
-      let rank = 1;
-      localStorage.setItem('rank', rank.toString());
-      const getRank = localStorage.getItem('rank');
-      if (getRank) {
-        rank++;
-      }
+
       users.push({
         id: id,
         user: user,
@@ -107,53 +103,7 @@ const Competition = () => {
           <span>Time left: {counter}</span>
         </div>
         <div className="w-1/2 h-auto">
-          <div className="bg-yellow-200 flex flex-row justify-center flex-wrap border">
-            <div className="p-5">
-              {imagesData.slice(0, 3)?.map((item) => (
-                <img
-                  src={item?.img}
-                  width="200"
-                  height="200"
-                  className="object-cover w-[200px] h-[200px] p-2 shadow-lg"
-                  alt={item.img}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    showType(item);
-                  }}
-                />
-              ))}
-            </div>
-            <div className="p-5">
-              {imagesData.slice(3, 6)?.map((item) => (
-                <img
-                  src={item?.img}
-                  width="200"
-                  height="200"
-                  className="object-cover w-[200px]  h-[200px] p-2 shadow-lg"
-                  alt={item.img}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    showType(item);
-                  }}
-                />
-              ))}
-            </div>
-            <div className="p-5">
-              {imagesData.slice(6, 9)?.map((item) => (
-                <img
-                  src={item?.img}
-                  width="200"
-                  height="200"
-                  className="object-cover w-[200px]  h-[200px] p-2 shadow-lg"
-                  alt={item.img}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    showType(item);
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+          <Images showType={showType} imagesData={imagesData} />
         </div>
       </div>
     </div>
