@@ -1,15 +1,21 @@
 import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { RouteComponentProps, useHistory } from 'react-router';
 import _ from 'lodash';
 import ScoresTable from '../components/Scores/Scores';
 
-const Scores = () => {
+const Scores = (props: RouteComponentProps) => {
   const [usersData, setUsersData] =
     useState<{ id: number; user: string; date: string; score: string }[]>();
 
   // const [usersData, setUsersData] = useState<any>();
   const history = useHistory();
+
+  props.history.listen((location, action) => {
+    if (action === 'POP') {
+      props.history.push('/');
+    }
+  });
 
   useEffect(() => {
     const allUsers = JSON.parse(localStorage.getItem('users') || '[]');
