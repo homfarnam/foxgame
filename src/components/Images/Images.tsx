@@ -8,13 +8,13 @@ interface ImageProps {
 const Images: React.FC<ImageProps> = ({ imagesData, showType }) => {
   return (
     <div className="bg-[#E1E8EB] flex flex-row justify-center flex-wrap border">
-      <div className="p-5">
+      <div className="m-5">
         {imagesData.slice(0, 3)?.map((item) => (
           <img
             src={item?.img}
             width="200"
             height="200"
-            className="object-cover w-[200px] h-[200px] compImage"
+            className="object-cover w-[200px] h-[200px] compImage hover:shadow-lg"
             alt={item.img}
             onClick={(e) => {
               e.preventDefault();
@@ -23,13 +23,13 @@ const Images: React.FC<ImageProps> = ({ imagesData, showType }) => {
           />
         ))}
       </div>
-      <div className="p-5">
+      <div className="m-5">
         {imagesData.slice(3, 6)?.map((item) => (
           <img
             src={item?.img}
             width="200"
             height="200"
-            className="object-cover w-[200px]  h-[200px] compImage "
+            className="object-cover w-[200px]  h-[200px] compImage  hover:shadow-lg"
             alt={item.img}
             onClick={(e) => {
               e.preventDefault();
@@ -38,13 +38,13 @@ const Images: React.FC<ImageProps> = ({ imagesData, showType }) => {
           />
         ))}
       </div>
-      <div className="p-5">
+      <div className="m-5">
         {imagesData.slice(6, 9)?.map((item) => (
           <img
             src={item?.img}
             width="200"
             height="200"
-            className="object-cover w-[200px]  h-[200px] compImage "
+            className="object-cover w-[200px]  h-[200px] compImage  hover:shadow-lg"
             alt={item.img}
             onClick={(e) => {
               e.preventDefault();
