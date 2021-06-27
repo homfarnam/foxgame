@@ -96,11 +96,16 @@ const Competition = () => {
   return (
     <div className="w-full flex flex-col">
       <div className="w-full h-full flex flex-col items-center justify-center my-24">
-        <h2 className="font-mono flex justify-center mb-10">Competition</h2>
-        <div className="w-full flex flex-row items-center justify-center mb-10">
-          <span className="mx-10">Score: {score}</span>
+        <h2 className="flex text-4xl justify-center mb-10">Competition</h2>
+        <div className="w-full flex flex-col items-center justify-center mb-10">
+          <div className="flex">
+            <span className="mx-10 text-2xl">Score: {score}</span>
 
-          <span>Time left: {counter}</span>
+            <span className="text-2xl">Time left: {counter}</span>
+          </div>
+          <div className="flex justify-center items-center my-5 text-xl">
+            <p>You should select foxes to get score</p>
+          </div>
         </div>
         <div className="w-3/4 h-auto">
           <Images showType={showType} imagesData={imagesData} />
