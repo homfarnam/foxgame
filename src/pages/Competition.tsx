@@ -102,7 +102,7 @@ const Competition = () => {
 
           <span>Time left: {counter}</span>
         </div>
-        <div className="w-1/2 h-auto">
+        <div className="w-3/4 h-auto">
           <Images showType={showType} imagesData={imagesData} />
         </div>
       </div>
