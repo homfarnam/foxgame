@@ -7,14 +7,14 @@ interface ImageProps {
 
 const Images: React.FC<ImageProps> = ({ imagesData, showType }) => {
   return (
-    <div className="bg-yellow-200 flex flex-row justify-center flex-wrap border">
+    <div className="bg-[#E1E8EB] flex flex-row justify-center flex-wrap border">
       <div className="p-5">
         {imagesData.slice(0, 3)?.map((item) => (
           <img
             src={item?.img}
             width="200"
             height="200"
-            className="object-cover w-[200px] h-[200px] p-2 shadow-lg"
+            className="object-cover w-[200px] h-[200px] compImage"
             alt={item.img}
             onClick={(e) => {
               e.preventDefault();
@@ -29,7 +29,7 @@ const Images: React.FC<ImageProps> = ({ imagesData, showType }) => {
             src={item?.img}
             width="200"
             height="200"
-            className="object-cover w-[200px]  h-[200px] p-2 shadow-lg"
+            className="object-cover w-[200px]  h-[200px] compImage "
             alt={item.img}
             onClick={(e) => {
               e.preventDefault();
@@ -44,7 +44,7 @@ const Images: React.FC<ImageProps> = ({ imagesData, showType }) => {
             src={item?.img}
             width="200"
             height="200"
-            className="object-cover w-[200px]  h-[200px] p-2 shadow-lg"
+            className="object-cover w-[200px]  h-[200px] compImage "
             alt={item.img}
             onClick={(e) => {
               e.preventDefault();
