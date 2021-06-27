@@ -14,3 +14,15 @@ td {
   padding: 10px !important;
   background: rgb(245, 139, 69);
 }
+
+.compImage {
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.compImage:hover {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 42%);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  backdrop-filter: blur(16px);
+}
